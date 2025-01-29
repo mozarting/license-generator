@@ -44,7 +44,7 @@ func main() {
 						fmt.Printf("ERROR: Failed to read file '%s': %v\n", l.Name(), err)
 						return
 					}
-					r := strings.NewReplacer("<year>", year, "<copyright holder>", name)
+					r := strings.NewReplacer("<year>", year, "<fullname>", name)
 					fc := r.Replace(string(file_content))
 					err = os.WriteFile("LICENSE", []byte(fc), 0644)
 					if err != nil {
