@@ -36,8 +36,7 @@ func main() {
 			licenseFound := false
 			// create license file
 			for _, l := range licenses {
-				fmt.Println(l.Name())
-				if strings.EqualFold(l.Name(), license) {
+				if strings.EqualFold(l.Name(), license+".txt") {
 					licenseFound = true
 					file_content, err := os.ReadFile("licenses/" + l.Name())
 					if err != nil {
@@ -59,6 +58,7 @@ func main() {
 
 			if !licenseFound {
 				fmt.Printf("ERROR: License '%s' not found in './licenses'.\n", license)
+				fmt.Println("Available licenses", licenses)
 				os.Exit(1)
 			}
 
